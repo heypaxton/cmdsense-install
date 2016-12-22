@@ -27,8 +27,7 @@ echo "Adding network connection to /etc/network/interfaces"
 read -r -p "$1 Enter your SSID:" ssid
 read -r -p "$1 Enter your wifi password:" wifipass
 
-# cat > /etc/network/interfaces << EOF
-cat > ./interfaces <<EOF
+cat > /etc/network/interfaces << EOF
 auto wlan0
 allow-hotplug wlan0
 iface wlan0 inet dhcp
@@ -49,12 +48,13 @@ if [ "$installed" == "" ]; then
     #sudo apt-get install git
 fi
 
-echo "Downloading sensor application"
-# git clone git@bitbucket.org:senseintel/sensorapp.git $HOME/dev/sensorapp.py
-
-echo "Starting sensor application"
-# python $HOME/pythoncode/sensorapp
-
 echo $'\n'
 echo "Senseintel installation complete"
 echo $'\n'
+
+echo "Downloading sensor application"
+git clone git@github.com:heypaxton/senseintel-sensorapp.git $HOME/pythoncode/sensorapp
+
+echo "Starting sensor application"
+python $HOME/pythoncode/sensorapp.py
+
