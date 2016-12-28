@@ -48,6 +48,10 @@ if [ "$installed" == "" ]; then
     #sudo apt-get install git
 fi
 
+echo "Installing GPS"
+sudo apt-get install gpsd gpsd-clients python-gps
+# echo "Starting GPS daemon"
+
 echo $'\n'
 echo "Senseintel installation complete"
 echo $'\n'
