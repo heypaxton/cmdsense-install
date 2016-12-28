@@ -21,7 +21,7 @@ fi
 echo "Installing Senseintel on the device"
 
 echo "Getting system updates"
-#sudo apt-get updates
+sudo apt-get updates
 
 echo "Adding network connection to /etc/network/interfaces"
 read -r -p "$1 Enter your SSID:" ssid
@@ -45,20 +45,20 @@ EOF
 installed=`which git`
 if [ "$installed" == "" ]; then
     echo "Installing Git"
-    #sudo apt-get install git
+    sudo apt-get install git
 fi
 
 echo "Installing GPS"
 sudo apt-get install gpsd gpsd-clients python-gps
-# echo "Starting GPS daemon"
+# TODO start GPS
 
 echo $'\n'
 echo "Senseintel installation complete"
 echo $'\n'
 
 echo "Downloading sensor application"
-git clone git@github.com:heypaxton/senseintel-sensorapp.git $HOME/pythoncode/sensorapp
+#git clone git@github.com:heypaxton/senseintel-sensorapp.git $HOME/pythoncode/sensorapp
 
 echo "Starting sensor application"
-python $HOME/pythoncode/sensorapp.py
+#python $HOME/pythoncode/sensorapp.py
 
