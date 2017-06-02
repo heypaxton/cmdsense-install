@@ -86,6 +86,7 @@ if __name__ == "__main__":
 
     destination_id = 0x6001      # network ID of the ranging destination
     range_step_mm = 500         # distance that separates the amount of LEDs lighting up.
+    ranging_protocol = POZYX_RANGE_PROTOCOL_PRECISION #ranging protocol
 
     pozyx = PozyxSerial(port)
     # pozyx.getUWBChannel()
